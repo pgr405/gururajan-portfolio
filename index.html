@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gururajan Padmanaban | AI Product Builder & Tech Solutions Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: white;
+            color: var(--primary);
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skills h4 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--light-gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: white;
+            border-radius: 10px;
+            width: calc(50% - 40px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -50px;
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-company {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .project-tag {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .contact {
+            background-color: var(--light-gray);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-text {
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .experience-timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: -40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">GP</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Gururajan Padmanaban</h1>
+            <p>Sr. Software Engineer (GenAI) | AI Product Builder | Tech Solutions Specialist | 10+ Years in IT & Freelancing</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>AI Innovator & Software Expert with over a decade of experience</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="Gururajan.jpg" alt="Gururajan Padmanaban">
+                </div>
+                <div class="about-text">
+                    <h3>AI Innovator & Solutions Architect</h3>
+                    <p>I am an AI innovator, strategist, and problem-solver with over a decade of experience in IT and Freelancing, specializing in AI-driven product development, scalable enterprise solutions, and strategic AI governance. I conceived, developed, and deployed a first-of-its-kind AI wrapper technology that evaluates user intent, safeguards AI models, and enhances strategic decision-making.</p>
+                    <p>My expertise lies in developing AI solutions that bridge privacy, performance, and scalability. My work is at the intersection of AI product innovation, enterprise AI adoption, and flexible AI infrastructure—creating solutions that evolve with the industry's needs.</p>
+                    <div class="skills">
+                        <h4>Top Skills</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Large Language Models (LLM)</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">AI Product Development</span>
+                            <span class="skill-tag">Full Stack Development</span>
+                            <span class="skill-tag">DevOps</span>
+                            <span class="skill-tag">Cloud Architecture</span>
+                            <span class="skill-tag">System Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>My professional journey in the tech industry</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2023 - Present</div>
+                    <h3 class="timeline-title">Senior Software Development Engineer</h3>
+                    <div class="timeline-company">Trellix</div>
+                    <p>Led GenAI innovation with SecureLLM — a privacy-first, security-hardened AI wrapper that evolved into a production-grade product integrated across services. Filed patents and drove impactful AI and cloud initiatives.</p>
+                    <p>Developed and maintained scalable software and AI-based products. Led end-to-end feature development, working closely with cross-functional teams to deliver business-ready solutions.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2022 - December 2022</div>
+                    <h3 class="timeline-title">Sr. DevOps Engineer</h3>
+                    <div class="timeline-company">FireEye, Inc.</div>
+                    <p>Led high-impact initiatives to optimize performance, scalability, and cost-efficiency across AWS-based data systems. Redesigned key workflows for Athena, S3, and QuickSight—achieving over 99% cost reduction and 95% storage savings.</p>
+                    <p>Architected and delivered Dashboard as a Service (DaaS), integrated QuickSight with Okta, and developed centralized systems for usage monitoring and automated user management.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2021 - March 2022</div>
+                    <h3 class="timeline-title">DevOps Engineer</h3>
+                    <div class="timeline-company">FireEye, Inc.</div>
+                    <p>Focused on cloud infrastructure automation, CI/CD pipelines, and scalable data processing solutions.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2019 - July 2021</div>
+                    <h3 class="timeline-title">Full Stack Developer</h3>
+                    <div class="timeline-company">FIRST ADVANTAGE GLOBAL OPERATING CENTER PRIVATE LIMITED</div>
+                    <p>Enhanced in-home applications, converted monolithic apps to microservices, developed APIs and web applications, and handled applications like ePay (invoice Portal) and Alfresco (CMS).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Highlights from my portfolio of work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SecureLLM</h3>
+                        <p>A privacy-first, security-hardened AI wrapper technology that evaluates user intent, safeguards AI models, and enhances strategic decision-making. Patent applied.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">LLM</span>
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">AI Governance</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard as a Service (DaaS)</h3>
+                        <p>Architected and delivered a comprehensive dashboard service, integrated QuickSight with Okta (including mobile SSO), and developed centralized monitoring systems.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">QuickSight</span>
+                            <span class="project-tag">SSO Integration</span>
+                            <span class="project-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AWS Athena Cost Optimization</h3>
+                        <p>Redesigned key workflows for Athena, S3, and QuickSight—achieving over 99% cost reduction and 95% storage savings through advanced optimization techniques.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Cost Optimization</span>
+                            <span class="project-tag">Data Processing</span>
+                            <span class="project-tag">Lambda</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AV-Test Data Collection Automation</h3>
+                        <p>Built a cloud-native ECS & Lambda pipeline for automated data collection and processing, dramatically reducing manual effort and improving consistency.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS ECS</span>
+                            <span class="project-tag">Lambda</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Cloud-Native</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Awards & Achievements</h2>
+                <p>Recognition for excellence and innovation</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Patent Application</h3>
+                        <p>A MULTI-LEVEL APPROACH FOR ATTACK PREVENTION</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hackathon Winner</h3>
+                        <p>AI Wrapper Technology – Innovation + Hackathon Win</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Performance Awards</h3>
+                        <p>Accountable and Empowered Award, Delivery Excellence Award, Result Focused Award</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Interested in collaborating or learning more about my work?</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">pgr405@gmail.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">+91 8012132204</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">Dharmapuri, Tamil Nadu, India</div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/gururajan-padmanaban-portfolio" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/pgr405" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/GeniousGuru" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gururajan Padmanaban. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector('.nav-links').classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                document.querySelector('.scroll-top').classList.add('show');
+            } else {
+                document.querySelector('.scroll-top').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
